@@ -22,7 +22,8 @@
           .then(
               (app) => stlite.mount(
                   {
-                      entrypoint: "app.py",
+                    　requirements: ["matplotlib"], // Packages to install　
+                      entrypoint: "app.py",  // The target file of the `streamlit run` command
                       files: {
                           "app.py": app
                       }
