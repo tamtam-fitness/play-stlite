@@ -10,40 +10,26 @@
     <title>stlite app</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.7.1/build/stlite.css"
+      href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.34.0/build/stlite.css"
     />
-    <style>
-      footer {        
-        visibility: hidden;
-      }
-      footer:after {
-        content:'Based on github.com/FredHutch/stlite-template'; 
-        visibility: visible;
-        display: block;
-        position: relative;
-        padding: 5px;
-        top: 2px;
-      }
-    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.7.1/build/stlite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.34.0/build/stlite.js"></script>
     <script>
-        fetch("app.py")
-            .then((response) => response.text())
-            .then(
-                (app) => stlite.mount(
-                    {
-                        requirements: ["click", "scipy", "plotly"],
-                        entrypoint: "app.py",
-                        files: {
-                            "app.py": app
-                        }
-                    },
-                    document.getElementById("root")
-                )
-            );
+      fetch("app.py")
+          .then((response) => response.text())
+          .then(
+              (app) => stlite.mount(
+                  {
+                      entrypoint: "app.py",
+                      files: {
+                          "app.py": app
+                      }
+                  },
+                  document.getElementById("root")
+              )
+          );
     </script>
   </body>
 </html>
